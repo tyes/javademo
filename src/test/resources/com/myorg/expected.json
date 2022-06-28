@@ -1,0 +1,1654 @@
+{
+  "Resources": {
+    "myVpc3CC7CF9E": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.1.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "myVpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/Resource"
+      }
+    },
+    "myVpcpublicsubnetSubnet1SubnetE8A66A3F": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.0.0/24",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/Subnet"
+      }
+    },
+    "myVpcpublicsubnetSubnet1RouteTable16277B44": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/RouteTable"
+      }
+    },
+    "myVpcpublicsubnetSubnet1RouteTableAssociation9601C49B": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcpublicsubnetSubnet1RouteTable16277B44"
+        },
+        "SubnetId": {
+          "Ref": "myVpcpublicsubnetSubnet1SubnetE8A66A3F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/RouteTableAssociation"
+      }
+    },
+    "myVpcpublicsubnetSubnet1DefaultRouteD7218872": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcpublicsubnetSubnet1RouteTable16277B44"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "myVpcIGW1F8FFE4F"
+        }
+      },
+      "DependsOn": [
+        "myVpcVPCGWDA12C916"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/DefaultRoute"
+      }
+    },
+    "myVpcpublicsubnetSubnet1EIP54DF58FC": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/EIP"
+      }
+    },
+    "myVpcpublicsubnetSubnet1NATGateway36EB30D8": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "myVpcpublicsubnetSubnet1SubnetE8A66A3F"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "myVpcpublicsubnetSubnet1EIP54DF58FC",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/NATGateway"
+      }
+    },
+    "myVpcpublicsubnetSubnet2SubnetBED8BC85": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.1.0/24",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/public-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/Subnet"
+      }
+    },
+    "myVpcpublicsubnetSubnet2RouteTable6073E293": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/public-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/RouteTable"
+      }
+    },
+    "myVpcpublicsubnetSubnet2RouteTableAssociation659FD080": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcpublicsubnetSubnet2RouteTable6073E293"
+        },
+        "SubnetId": {
+          "Ref": "myVpcpublicsubnetSubnet2SubnetBED8BC85"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/RouteTableAssociation"
+      }
+    },
+    "myVpcpublicsubnetSubnet2DefaultRoute7BC65881": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcpublicsubnetSubnet2RouteTable6073E293"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "myVpcIGW1F8FFE4F"
+        }
+      },
+      "DependsOn": [
+        "myVpcVPCGWDA12C916"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/DefaultRoute"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet1Subnet8B79E854": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.2.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "web-private-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/web-private-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/Subnet"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet1RouteTableA402FB16": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/web-private-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/RouteTable"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet1RouteTableAssociationB2F9A5D8": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcwebprivatesubnetSubnet1RouteTableA402FB16"
+        },
+        "SubnetId": {
+          "Ref": "myVpcwebprivatesubnetSubnet1Subnet8B79E854"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/RouteTableAssociation"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet1DefaultRoute63CA2F95": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcwebprivatesubnetSubnet1RouteTableA402FB16"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/DefaultRoute"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet2Subnet9561BFA3": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.3.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "web-private-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/web-private-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/Subnet"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet2RouteTableD7C8C0F1": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/web-private-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/RouteTable"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet2RouteTableAssociation4B53BBFE": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcwebprivatesubnetSubnet2RouteTableD7C8C0F1"
+        },
+        "SubnetId": {
+          "Ref": "myVpcwebprivatesubnetSubnet2Subnet9561BFA3"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/RouteTableAssociation"
+      }
+    },
+    "myVpcwebprivatesubnetSubnet2DefaultRouteD08FE995": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcwebprivatesubnetSubnet2RouteTableD7C8C0F1"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/DefaultRoute"
+      }
+    },
+    "myVpcappprivatesubnetSubnet1SubnetCFE1550A": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.4.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "app-private-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/app-private-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/Subnet"
+      }
+    },
+    "myVpcappprivatesubnetSubnet1RouteTableF4262A21": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/app-private-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/RouteTable"
+      }
+    },
+    "myVpcappprivatesubnetSubnet1RouteTableAssociation21B709A1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcappprivatesubnetSubnet1RouteTableF4262A21"
+        },
+        "SubnetId": {
+          "Ref": "myVpcappprivatesubnetSubnet1SubnetCFE1550A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/RouteTableAssociation"
+      }
+    },
+    "myVpcappprivatesubnetSubnet1DefaultRoute57086FE7": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcappprivatesubnetSubnet1RouteTableF4262A21"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/DefaultRoute"
+      }
+    },
+    "myVpcappprivatesubnetSubnet2SubnetD57A15B8": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.5.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "app-private-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/app-private-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/Subnet"
+      }
+    },
+    "myVpcappprivatesubnetSubnet2RouteTable2164FFEA": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/app-private-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/RouteTable"
+      }
+    },
+    "myVpcappprivatesubnetSubnet2RouteTableAssociation473356B1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcappprivatesubnetSubnet2RouteTable2164FFEA"
+        },
+        "SubnetId": {
+          "Ref": "myVpcappprivatesubnetSubnet2SubnetD57A15B8"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/RouteTableAssociation"
+      }
+    },
+    "myVpcappprivatesubnetSubnet2DefaultRouteF93DCABF": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcappprivatesubnetSubnet2RouteTable2164FFEA"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/DefaultRoute"
+      }
+    },
+    "myVpcdbprivatesubnetSubnet1Subnet9D467BEF": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.6.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "db-private-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/db-private-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet1/Subnet"
+      }
+    },
+    "myVpcdbprivatesubnetSubnet1RouteTableA1C16D10": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/db-private-subnetSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet1/RouteTable"
+      }
+    },
+    "myVpcdbprivatesubnetSubnet1RouteTableAssociationD526A476": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcdbprivatesubnetSubnet1RouteTableA1C16D10"
+        },
+        "SubnetId": {
+          "Ref": "myVpcdbprivatesubnetSubnet1Subnet9D467BEF"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet1/RouteTableAssociation"
+      }
+    },
+    "myVpcdbprivatesubnetSubnet2SubnetC184105A": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "CidrBlock": "10.1.7.0/24",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "db-private-subnet"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/db-private-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet2/Subnet"
+      }
+    },
+    "myVpcdbprivatesubnetSubnet2RouteTableF1621556": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "JavademoStack/myVpc/db-private-subnetSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet2/RouteTable"
+      }
+    },
+    "myVpcdbprivatesubnetSubnet2RouteTableAssociation80F939D0": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "myVpcdbprivatesubnetSubnet2RouteTableF1621556"
+        },
+        "SubnetId": {
+          "Ref": "myVpcdbprivatesubnetSubnet2SubnetC184105A"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet2/RouteTableAssociation"
+      }
+    },
+    "myVpcIGW1F8FFE4F": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "myVpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/IGW"
+      }
+    },
+    "myVpcVPCGWDA12C916": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        },
+        "InternetGatewayId": {
+          "Ref": "myVpcIGW1F8FFE4F"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/myVpc/VPCGW"
+      }
+    },
+    "TGB29B09E7": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "Name": "web-tg",
+        "Port": 80,
+        "Protocol": "HTTP",
+        "TargetGroupAttributes": [
+          {
+            "Key": "stickiness.enabled",
+            "Value": "false"
+          }
+        ],
+        "TargetType": "ip",
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/TG/Resource"
+      }
+    },
+    "ALBAEE750D2": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "LoadBalancerAttributes": [
+          {
+            "Key": "deletion_protection.enabled",
+            "Value": "false"
+          }
+        ],
+        "Name": "web-alb",
+        "Scheme": "internet-facing",
+        "SecurityGroups": [
+          {
+            "Fn::GetAtt": [
+              "ALBSecurityGroup8B8624F8",
+              "GroupId"
+            ]
+          }
+        ],
+        "Subnets": [
+          {
+            "Ref": "myVpcpublicsubnetSubnet1SubnetE8A66A3F"
+          },
+          {
+            "Ref": "myVpcpublicsubnetSubnet2SubnetBED8BC85"
+          }
+        ],
+        "Type": "application"
+      },
+      "DependsOn": [
+        "myVpcpublicsubnetSubnet1DefaultRouteD7218872",
+        "myVpcpublicsubnetSubnet2DefaultRoute7BC65881"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/ALB/Resource"
+      }
+    },
+    "ALBSecurityGroup8B8624F8": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Automatically created Security Group for ELB JavademoStackALB95D8F1EE",
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow from anyone on port 80",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/ALB/SecurityGroup/Resource"
+      }
+    },
+    "ALBSecurityGrouptoJavademoStackfargateserviceSecurityGroup59CE30C6805B6A79EB": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Fn::GetAtt": [
+            "ALBSecurityGroup8B8624F8",
+            "GroupId"
+          ]
+        },
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "DestinationSecurityGroupId": {
+          "Fn::GetAtt": [
+            "fargateserviceSecurityGroup3ACEBB0F",
+            "GroupId"
+          ]
+        },
+        "FromPort": 80,
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/ALB/SecurityGroup/to JavademoStackfargateserviceSecurityGroup59CE30C6:80"
+      }
+    },
+    "Listener828B0E81": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "TGB29B09E7"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "ALBAEE750D2"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/Listener/Resource"
+      }
+    },
+    "webecsclusterE0F56370": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "web-ecs-cluster"
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/web-ecs-cluster/Resource"
+      }
+    },
+    "FargateTaskDefTaskRole0B257552": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/FargateTaskDef/TaskRole/Resource"
+      }
+    },
+    "FargateTaskDefC6FB60B4": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Essential": true,
+            "Image": "amazon/amazon-ecs-sample",
+            "Name": "PHP",
+            "PortMappings": [
+              {
+                "ContainerPort": 80,
+                "Protocol": "tcp"
+              }
+            ]
+          }
+        ],
+        "Cpu": "256",
+        "Family": "JavademoStackFargateTaskDef21572778",
+        "Memory": "512",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": [
+            "FargateTaskDefTaskRole0B257552",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/FargateTaskDef/Resource"
+      }
+    },
+    "fargateserviceService16837280": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "webecsclusterE0F56370"
+        },
+        "DeploymentConfiguration": {
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 50
+        },
+        "EnableECSManagedTags": false,
+        "HealthCheckGracePeriodSeconds": 60,
+        "LaunchType": "FARGATE",
+        "LoadBalancers": [
+          {
+            "ContainerName": "PHP",
+            "ContainerPort": 80,
+            "TargetGroupArn": {
+              "Ref": "TGB29B09E7"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": [
+                  "fargateserviceSecurityGroup3ACEBB0F",
+                  "GroupId"
+                ]
+              }
+            ],
+            "Subnets": [
+              {
+                "Ref": "myVpcwebprivatesubnetSubnet1Subnet8B79E854"
+              },
+              {
+                "Ref": "myVpcwebprivatesubnetSubnet2Subnet9561BFA3"
+              },
+              {
+                "Ref": "myVpcappprivatesubnetSubnet1SubnetCFE1550A"
+              },
+              {
+                "Ref": "myVpcappprivatesubnetSubnet2SubnetD57A15B8"
+              }
+            ]
+          }
+        },
+        "ServiceName": "fargate-service",
+        "TaskDefinition": {
+          "Ref": "FargateTaskDefC6FB60B4"
+        }
+      },
+      "DependsOn": [
+        "Listener828B0E81"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/fargate-service/Service"
+      }
+    },
+    "fargateserviceSecurityGroup3ACEBB0F": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "JavademoStack/fargate-service/SecurityGroup",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/fargate-service/SecurityGroup/Resource"
+      }
+    },
+    "fargateserviceSecurityGroupfromJavademoStackALBSecurityGroup60D2172D80A7F053A1": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "FromPort": 80,
+        "GroupId": {
+          "Fn::GetAtt": [
+            "fargateserviceSecurityGroup3ACEBB0F",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "ALBSecurityGroup8B8624F8",
+            "GroupId"
+          ]
+        },
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/fargate-service/SecurityGroup/from JavademoStackALBSecurityGroup60D2172D:80"
+      }
+    },
+    "fargateserviceTaskCountTarget0BC3257A": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "Properties": {
+        "MaxCapacity": 20,
+        "MinCapacity": 4,
+        "ResourceId": {
+          "Fn::Join": [
+            "",
+            [
+              "service/",
+              {
+                "Ref": "webecsclusterE0F56370"
+              },
+              "/",
+              {
+                "Fn::GetAtt": [
+                  "fargateserviceService16837280",
+                  "Name"
+                ]
+              }
+            ]
+          ]
+        },
+        "RoleARN": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":iam::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
+            ]
+          ]
+        },
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "ServiceNamespace": "ecs"
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/fargate-service/TaskCount/Target/Resource"
+      }
+    },
+    "bastionsg9F6FB053": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Allow ssh access to ec2 instances",
+        "GroupName": "bastion-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "from 0.0.0.0/0:22",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22
+          }
+        ],
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/bastion-sg/Resource"
+      }
+    },
+    "bastionInstanceRole5FE40889": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "ec2.",
+                      {
+                        "Ref": "AWS::URLSuffix"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "bastion"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/bastion/Resource/InstanceRole/Resource"
+      }
+    },
+    "bastionInstanceRoleDefaultPolicyAF88F25C": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ec2messages:*",
+                "ssm:UpdateInstanceInformation",
+                "ssmmessages:*"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "bastionInstanceRoleDefaultPolicyAF88F25C",
+        "Roles": [
+          {
+            "Ref": "bastionInstanceRole5FE40889"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/bastion/Resource/InstanceRole/DefaultPolicy/Resource"
+      }
+    },
+    "bastionInstanceProfileE50CD38E": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "bastionInstanceRole5FE40889"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/bastion/Resource/InstanceProfile"
+      }
+    },
+    "bastion2B0A2D9E": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "IamInstanceProfile": {
+          "Ref": "bastionInstanceProfileE50CD38E"
+        },
+        "ImageId": {
+          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+        },
+        "InstanceType": "t1.micro",
+        "SecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "bastionsg9F6FB053",
+              "GroupId"
+            ]
+          }
+        ],
+        "SubnetId": {
+          "Ref": "myVpcpublicsubnetSubnet1SubnetE8A66A3F"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "bastion"
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": "#!/bin/bash"
+        }
+      },
+      "DependsOn": [
+        "bastionInstanceRoleDefaultPolicyAF88F25C",
+        "bastionInstanceRole5FE40889"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/bastion/Resource/Resource"
+      }
+    },
+    "rdssg9E2D99FE": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Allow ecs access to rds",
+        "GroupName": "rds-sg",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "from 0.0.0.0/0:3306",
+            "FromPort": 3306,
+            "IpProtocol": "tcp",
+            "ToPort": 3306
+          }
+        ],
+        "VpcId": {
+          "Ref": "myVpc3CC7CF9E"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/rds-sg/Resource"
+      }
+    },
+    "rdssgfromJavademoStackfargateserviceSecurityGroup59CE30C6330603FDE748": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "from JavademoStackfargateserviceSecurityGroup59CE30C6:3306",
+        "FromPort": 3306,
+        "GroupId": {
+          "Fn::GetAtt": [
+            "rdssg9E2D99FE",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "fargateserviceSecurityGroup3ACEBB0F",
+            "GroupId"
+          ]
+        },
+        "ToPort": 3306
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/rds-sg/from JavademoStackfargateserviceSecurityGroup59CE30C6:3306"
+      }
+    },
+    "mysqlclusterSubnets8991E2B2": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "Subnets for mysql-cluster database",
+        "SubnetIds": [
+          {
+            "Ref": "myVpcdbprivatesubnetSubnet1Subnet9D467BEF"
+          },
+          {
+            "Ref": "myVpcdbprivatesubnetSubnet2SubnetC184105A"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/mysql-cluster/Subnets/Default"
+      }
+    },
+    "mysqlclusterSecret142D0451": {
+      "Type": "AWS::SecretsManager::Secret",
+      "Properties": {
+        "Description": {
+          "Fn::Join": [
+            "",
+            [
+              "Generated by the CDK for stack: ",
+              {
+                "Ref": "AWS::StackName"
+              }
+            ]
+          ]
+        },
+        "GenerateSecretString": {
+          "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+          "GenerateStringKey": "password",
+          "PasswordLength": 30,
+          "SecretStringTemplate": "{\"username\":\"admin\"}"
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/mysql-cluster/Secret/Resource"
+      }
+    },
+    "mysqlclusterSecretAttachment3CC06752": {
+      "Type": "AWS::SecretsManager::SecretTargetAttachment",
+      "Properties": {
+        "SecretId": {
+          "Ref": "mysqlclusterSecret142D0451"
+        },
+        "TargetId": {
+          "Ref": "mysqlclusterC5879917"
+        },
+        "TargetType": "AWS::RDS::DBCluster"
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/mysql-cluster/Secret/Attachment/Resource"
+      }
+    },
+    "mysqlclusterC5879917": {
+      "Type": "AWS::RDS::DBCluster",
+      "Properties": {
+        "Engine": "aurora-mysql",
+        "CopyTagsToSnapshot": true,
+        "DatabaseName": "mysqldb",
+        "DBClusterParameterGroupName": "default.aurora-mysql5.7",
+        "DBSubnetGroupName": {
+          "Ref": "mysqlclusterSubnets8991E2B2"
+        },
+        "EngineVersion": "5.7.mysql_aurora.2.08.1",
+        "MasterUsername": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "mysqlclusterSecret142D0451"
+              },
+              ":SecretString:username::}}"
+            ]
+          ]
+        },
+        "MasterUserPassword": {
+          "Fn::Join": [
+            "",
+            [
+              "{{resolve:secretsmanager:",
+              {
+                "Ref": "mysqlclusterSecret142D0451"
+              },
+              ":SecretString:password::}}"
+            ]
+          ]
+        },
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "rdssg9E2D99FE",
+              "GroupId"
+            ]
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Snapshot",
+      "DeletionPolicy": "Snapshot",
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/mysql-cluster/Resource"
+      }
+    },
+    "mysqlclusterInstance144880598": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "DBInstanceClass": "db.t2.small",
+        "DBClusterIdentifier": {
+          "Ref": "mysqlclusterC5879917"
+        },
+        "DBSubnetGroupName": {
+          "Ref": "mysqlclusterSubnets8991E2B2"
+        },
+        "Engine": "aurora-mysql",
+        "EngineVersion": "5.7.mysql_aurora.2.08.1",
+        "PubliclyAccessible": false
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/mysql-cluster/Instance1"
+      }
+    },
+    "mysqlclusterInstance246CF4EBB": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "DBInstanceClass": "db.t2.small",
+        "DBClusterIdentifier": {
+          "Ref": "mysqlclusterC5879917"
+        },
+        "DBSubnetGroupName": {
+          "Ref": "mysqlclusterSubnets8991E2B2"
+        },
+        "Engine": "aurora-mysql",
+        "EngineVersion": "5.7.mysql_aurora.2.08.1",
+        "PubliclyAccessible": false
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/mysql-cluster/Instance2"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31SQW7bMBB8S+60WhvooUfLSlMXQStYQa7Fil67rCVSIJdOA0F/75KULCUFeuJwOFzOznKTbT5n6zt4cSt5vKwaVWd9RSAvgqmfPcpN1j93UuxO+rncidLXjZKVrzVS4GZ0MJ7wCeoGZ37mts4ZqYCU0TdxAPf7MizfgR6A8AVeRWnVleFceK8JLeNJkJyMuy2x118tahIVSm8VvT5Y47vo4b/E/dmic//Qe534HFww+9U4elTa/xF77Qi0xGQp4UFgE3SyMXCsoWFO6fOVI9t2HecU+30Ce2b3k4nldqF65Ap5rIA2yN7slzrlCPWoGTHbkC7rd43nfTyZ4Bd+DMII3KXAk9JqGsB7xmgCxaUW3Hi3QntVqe0JVpKN8VBDkZ3xmgahoM36g0nDj2tp2HKc1oym3EprTqrh+GBuDDwZx4U5QP6BtxdCWPHtN8wg7JE7LoCgBodTu+nT3KIu8iUxiXncNtUs8kVkRT5P1UWJa0HDGS0nGz9JuJWWZGLx926C9yfDIA7ojLcpwR+eOh/lJVhocXx7KeFRHOMABvENrvBhvc4+ZutPd7+dUivLYasWs0Na/wJG6t+BvQMAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "JavademoStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "bastionBastionHostIdB3A60495": {
+      "Description": "Instance ID of the bastion host. Use this to connect via SSM Session Manager",
+      "Value": {
+        "Ref": "bastion2B0A2D9E"
+      }
+    }
+  },
+  "Parameters": {
+    "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+      "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+    },
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}
