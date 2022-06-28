@@ -13,9 +13,6 @@
             "Value": "myVpc"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/Resource"
       }
     },
     "myVpcpublicsubnetSubnet1SubnetE8A66A3F": {
@@ -45,12 +42,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+            "Value": "test/myVpc/public-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/Subnet"
       }
     },
     "myVpcpublicsubnetSubnet1RouteTable16277B44": {
@@ -62,12 +56,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+            "Value": "test/myVpc/public-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/RouteTable"
       }
     },
     "myVpcpublicsubnetSubnet1RouteTableAssociation9601C49B": {
@@ -79,9 +70,6 @@
         "SubnetId": {
           "Ref": "myVpcpublicsubnetSubnet1SubnetE8A66A3F"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/RouteTableAssociation"
       }
     },
     "myVpcpublicsubnetSubnet1DefaultRouteD7218872": {
@@ -97,10 +85,7 @@
       },
       "DependsOn": [
         "myVpcVPCGWDA12C916"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/DefaultRoute"
-      }
+      ]
     },
     "myVpcpublicsubnetSubnet1EIP54DF58FC": {
       "Type": "AWS::EC2::EIP",
@@ -109,12 +94,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+            "Value": "test/myVpc/public-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/EIP"
       }
     },
     "myVpcpublicsubnetSubnet1NATGateway36EB30D8": {
@@ -132,12 +114,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/public-subnetSubnet1"
+            "Value": "test/myVpc/public-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet1/NATGateway"
       }
     },
     "myVpcpublicsubnetSubnet2SubnetBED8BC85": {
@@ -167,12 +146,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/public-subnetSubnet2"
+            "Value": "test/myVpc/public-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/Subnet"
       }
     },
     "myVpcpublicsubnetSubnet2RouteTable6073E293": {
@@ -184,12 +160,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/public-subnetSubnet2"
+            "Value": "test/myVpc/public-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/RouteTable"
       }
     },
     "myVpcpublicsubnetSubnet2RouteTableAssociation659FD080": {
@@ -201,9 +174,6 @@
         "SubnetId": {
           "Ref": "myVpcpublicsubnetSubnet2SubnetBED8BC85"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/RouteTableAssociation"
       }
     },
     "myVpcpublicsubnetSubnet2DefaultRoute7BC65881": {
@@ -219,10 +189,7 @@
       },
       "DependsOn": [
         "myVpcVPCGWDA12C916"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/public-subnetSubnet2/DefaultRoute"
-      }
+      ]
     },
     "myVpcwebprivatesubnetSubnet1Subnet8B79E854": {
       "Type": "AWS::EC2::Subnet",
@@ -251,12 +218,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/web-private-subnetSubnet1"
+            "Value": "test/myVpc/web-private-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/Subnet"
       }
     },
     "myVpcwebprivatesubnetSubnet1RouteTableA402FB16": {
@@ -268,12 +232,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/web-private-subnetSubnet1"
+            "Value": "test/myVpc/web-private-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/RouteTable"
       }
     },
     "myVpcwebprivatesubnetSubnet1RouteTableAssociationB2F9A5D8": {
@@ -285,9 +246,6 @@
         "SubnetId": {
           "Ref": "myVpcwebprivatesubnetSubnet1Subnet8B79E854"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/RouteTableAssociation"
       }
     },
     "myVpcwebprivatesubnetSubnet1DefaultRoute63CA2F95": {
@@ -300,9 +258,6 @@
         "NatGatewayId": {
           "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet1/DefaultRoute"
       }
     },
     "myVpcwebprivatesubnetSubnet2Subnet9561BFA3": {
@@ -332,12 +287,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/web-private-subnetSubnet2"
+            "Value": "test/myVpc/web-private-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/Subnet"
       }
     },
     "myVpcwebprivatesubnetSubnet2RouteTableD7C8C0F1": {
@@ -349,12 +301,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/web-private-subnetSubnet2"
+            "Value": "test/myVpc/web-private-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/RouteTable"
       }
     },
     "myVpcwebprivatesubnetSubnet2RouteTableAssociation4B53BBFE": {
@@ -366,9 +315,6 @@
         "SubnetId": {
           "Ref": "myVpcwebprivatesubnetSubnet2Subnet9561BFA3"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/RouteTableAssociation"
       }
     },
     "myVpcwebprivatesubnetSubnet2DefaultRouteD08FE995": {
@@ -381,9 +327,6 @@
         "NatGatewayId": {
           "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/web-private-subnetSubnet2/DefaultRoute"
       }
     },
     "myVpcappprivatesubnetSubnet1SubnetCFE1550A": {
@@ -413,12 +356,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/app-private-subnetSubnet1"
+            "Value": "test/myVpc/app-private-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/Subnet"
       }
     },
     "myVpcappprivatesubnetSubnet1RouteTableF4262A21": {
@@ -430,12 +370,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/app-private-subnetSubnet1"
+            "Value": "test/myVpc/app-private-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/RouteTable"
       }
     },
     "myVpcappprivatesubnetSubnet1RouteTableAssociation21B709A1": {
@@ -447,9 +384,6 @@
         "SubnetId": {
           "Ref": "myVpcappprivatesubnetSubnet1SubnetCFE1550A"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/RouteTableAssociation"
       }
     },
     "myVpcappprivatesubnetSubnet1DefaultRoute57086FE7": {
@@ -462,9 +396,6 @@
         "NatGatewayId": {
           "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet1/DefaultRoute"
       }
     },
     "myVpcappprivatesubnetSubnet2SubnetD57A15B8": {
@@ -494,12 +425,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/app-private-subnetSubnet2"
+            "Value": "test/myVpc/app-private-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/Subnet"
       }
     },
     "myVpcappprivatesubnetSubnet2RouteTable2164FFEA": {
@@ -511,12 +439,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/app-private-subnetSubnet2"
+            "Value": "test/myVpc/app-private-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/RouteTable"
       }
     },
     "myVpcappprivatesubnetSubnet2RouteTableAssociation473356B1": {
@@ -528,9 +453,6 @@
         "SubnetId": {
           "Ref": "myVpcappprivatesubnetSubnet2SubnetD57A15B8"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/RouteTableAssociation"
       }
     },
     "myVpcappprivatesubnetSubnet2DefaultRouteF93DCABF": {
@@ -543,9 +465,6 @@
         "NatGatewayId": {
           "Ref": "myVpcpublicsubnetSubnet1NATGateway36EB30D8"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/app-private-subnetSubnet2/DefaultRoute"
       }
     },
     "myVpcdbprivatesubnetSubnet1Subnet9D467BEF": {
@@ -575,12 +494,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/db-private-subnetSubnet1"
+            "Value": "test/myVpc/db-private-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet1/Subnet"
       }
     },
     "myVpcdbprivatesubnetSubnet1RouteTableA1C16D10": {
@@ -592,12 +508,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/db-private-subnetSubnet1"
+            "Value": "test/myVpc/db-private-subnetSubnet1"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet1/RouteTable"
       }
     },
     "myVpcdbprivatesubnetSubnet1RouteTableAssociationD526A476": {
@@ -609,9 +522,6 @@
         "SubnetId": {
           "Ref": "myVpcdbprivatesubnetSubnet1Subnet9D467BEF"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet1/RouteTableAssociation"
       }
     },
     "myVpcdbprivatesubnetSubnet2SubnetC184105A": {
@@ -641,12 +551,9 @@
           },
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/db-private-subnetSubnet2"
+            "Value": "test/myVpc/db-private-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet2/Subnet"
       }
     },
     "myVpcdbprivatesubnetSubnet2RouteTableF1621556": {
@@ -658,12 +565,9 @@
         "Tags": [
           {
             "Key": "Name",
-            "Value": "JavademoStack/myVpc/db-private-subnetSubnet2"
+            "Value": "test/myVpc/db-private-subnetSubnet2"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet2/RouteTable"
       }
     },
     "myVpcdbprivatesubnetSubnet2RouteTableAssociation80F939D0": {
@@ -675,9 +579,6 @@
         "SubnetId": {
           "Ref": "myVpcdbprivatesubnetSubnet2SubnetC184105A"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/db-private-subnetSubnet2/RouteTableAssociation"
       }
     },
     "myVpcIGW1F8FFE4F": {
@@ -689,9 +590,6 @@
             "Value": "myVpc"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/IGW"
       }
     },
     "myVpcVPCGWDA12C916": {
@@ -703,9 +601,6 @@
         "InternetGatewayId": {
           "Ref": "myVpcIGW1F8FFE4F"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/myVpc/VPCGW"
       }
     },
     "TGB29B09E7": {
@@ -724,9 +619,6 @@
         "VpcId": {
           "Ref": "myVpc3CC7CF9E"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/TG/Resource"
       }
     },
     "ALBAEE750D2": {
@@ -761,15 +653,12 @@
       "DependsOn": [
         "myVpcpublicsubnetSubnet1DefaultRouteD7218872",
         "myVpcpublicsubnetSubnet2DefaultRoute7BC65881"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/ALB/Resource"
-      }
+      ]
     },
     "ALBSecurityGroup8B8624F8": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "Automatically created Security Group for ELB JavademoStackALB95D8F1EE",
+        "GroupDescription": "Automatically created Security Group for ELB testALBCE7FCCB2",
         "SecurityGroupIngress": [
           {
             "CidrIp": "0.0.0.0/0",
@@ -782,12 +671,9 @@
         "VpcId": {
           "Ref": "myVpc3CC7CF9E"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/ALB/SecurityGroup/Resource"
       }
     },
-    "ALBSecurityGrouptoJavademoStackfargateserviceSecurityGroup59CE30C6805B6A79EB": {
+    "ALBSecurityGrouptotestfargateserviceSecurityGroup816640BD80518F99AB": {
       "Type": "AWS::EC2::SecurityGroupEgress",
       "Properties": {
         "GroupId": {
@@ -806,9 +692,6 @@
         },
         "FromPort": 80,
         "ToPort": 80
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/ALB/SecurityGroup/to JavademoStackfargateserviceSecurityGroup59CE30C6:80"
       }
     },
     "Listener828B0E81": {
@@ -827,18 +710,12 @@
         },
         "Port": 80,
         "Protocol": "HTTP"
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/Listener/Resource"
       }
     },
     "webecsclusterE0F56370": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
         "ClusterName": "web-ecs-cluster"
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/web-ecs-cluster/Resource"
       }
     },
     "FargateTaskDefTaskRole0B257552": {
@@ -856,9 +733,6 @@
           ],
           "Version": "2012-10-17"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/FargateTaskDef/TaskRole/Resource"
       }
     },
     "FargateTaskDefC6FB60B4": {
@@ -878,7 +752,7 @@
           }
         ],
         "Cpu": "256",
-        "Family": "JavademoStackFargateTaskDef21572778",
+        "Family": "testFargateTaskDefC3D6ABC2",
         "Memory": "512",
         "NetworkMode": "awsvpc",
         "RequiresCompatibilities": [
@@ -890,9 +764,6 @@
             "Arn"
           ]
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/FargateTaskDef/Resource"
       }
     },
     "fargateserviceService16837280": {
@@ -951,15 +822,12 @@
       },
       "DependsOn": [
         "Listener828B0E81"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/fargate-service/Service"
-      }
+      ]
     },
     "fargateserviceSecurityGroup3ACEBB0F": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
-        "GroupDescription": "JavademoStack/fargate-service/SecurityGroup",
+        "GroupDescription": "test/fargate-service/SecurityGroup",
         "SecurityGroupEgress": [
           {
             "CidrIp": "0.0.0.0/0",
@@ -970,12 +838,9 @@
         "VpcId": {
           "Ref": "myVpc3CC7CF9E"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/fargate-service/SecurityGroup/Resource"
       }
     },
-    "fargateserviceSecurityGroupfromJavademoStackALBSecurityGroup60D2172D80A7F053A1": {
+    "fargateserviceSecurityGroupfromtestALBSecurityGroup1DC4A465805E69E799": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
@@ -994,9 +859,6 @@
           ]
         },
         "ToPort": 80
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/fargate-service/SecurityGroup/from JavademoStackALBSecurityGroup60D2172D:80"
       }
     },
     "fargateserviceTaskCountTarget0BC3257A": {
@@ -1040,9 +902,6 @@
         },
         "ScalableDimension": "ecs:service:DesiredCount",
         "ServiceNamespace": "ecs"
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/fargate-service/TaskCount/Target/Resource"
       }
     },
     "bastionsg9F6FB053": {
@@ -1069,9 +928,6 @@
         "VpcId": {
           "Ref": "myVpc3CC7CF9E"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/bastion-sg/Resource"
       }
     },
     "bastionInstanceRole5FE40889": {
@@ -1105,9 +961,6 @@
             "Value": "bastion"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/bastion/Resource/InstanceRole/Resource"
       }
     },
     "bastionInstanceRoleDefaultPolicyAF88F25C": {
@@ -1117,9 +970,9 @@
           "Statement": [
             {
               "Action": [
-                "ec2messages:*",
+                "ssmmessages:*",
                 "ssm:UpdateInstanceInformation",
-                "ssmmessages:*"
+                "ec2messages:*"
               ],
               "Effect": "Allow",
               "Resource": "*"
@@ -1133,9 +986,6 @@
             "Ref": "bastionInstanceRole5FE40889"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/bastion/Resource/InstanceRole/DefaultPolicy/Resource"
       }
     },
     "bastionInstanceProfileE50CD38E": {
@@ -1146,9 +996,6 @@
             "Ref": "bastionInstanceRole5FE40889"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/bastion/Resource/InstanceProfile"
       }
     },
     "bastion2B0A2D9E": {
@@ -1193,10 +1040,7 @@
       "DependsOn": [
         "bastionInstanceRoleDefaultPolicyAF88F25C",
         "bastionInstanceRole5FE40889"
-      ],
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/bastion/Resource/Resource"
-      }
+      ]
     },
     "rdssg9E2D99FE": {
       "Type": "AWS::EC2::SecurityGroup",
@@ -1222,16 +1066,13 @@
         "VpcId": {
           "Ref": "myVpc3CC7CF9E"
         }
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/rds-sg/Resource"
       }
     },
-    "rdssgfromJavademoStackfargateserviceSecurityGroup59CE30C6330603FDE748": {
+    "rdssgfromtestfargateserviceSecurityGroup816640BD3306EDB969FD": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
-        "Description": "from JavademoStackfargateserviceSecurityGroup59CE30C6:3306",
+        "Description": "from testfargateserviceSecurityGroup816640BD:3306",
         "FromPort": 3306,
         "GroupId": {
           "Fn::GetAtt": [
@@ -1246,9 +1087,6 @@
           ]
         },
         "ToPort": 3306
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/rds-sg/from JavademoStackfargateserviceSecurityGroup59CE30C6:3306"
       }
     },
     "mysqlclusterSubnets8991E2B2": {
@@ -1263,9 +1101,6 @@
             "Ref": "myVpcdbprivatesubnetSubnet2SubnetC184105A"
           }
         ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/mysql-cluster/Subnets/Default"
       }
     },
     "mysqlclusterSecret142D0451": {
@@ -1290,10 +1125,7 @@
         }
       },
       "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/mysql-cluster/Secret/Resource"
-      }
+      "DeletionPolicy": "Delete"
     },
     "mysqlclusterSecretAttachment3CC06752": {
       "Type": "AWS::SecretsManager::SecretTargetAttachment",
@@ -1305,9 +1137,6 @@
           "Ref": "mysqlclusterC5879917"
         },
         "TargetType": "AWS::RDS::DBCluster"
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/mysql-cluster/Secret/Attachment/Resource"
       }
     },
     "mysqlclusterC5879917": {
@@ -1355,10 +1184,7 @@
         ]
       },
       "UpdateReplacePolicy": "Snapshot",
-      "DeletionPolicy": "Snapshot",
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/mysql-cluster/Resource"
-      }
+      "DeletionPolicy": "Snapshot"
     },
     "mysqlclusterInstance144880598": {
       "Type": "AWS::RDS::DBInstance",
@@ -1375,10 +1201,7 @@
         "PubliclyAccessible": false
       },
       "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/mysql-cluster/Instance1"
-      }
+      "DeletionPolicy": "Delete"
     },
     "mysqlclusterInstance246CF4EBB": {
       "Type": "AWS::RDS::DBInstance",
@@ -1395,20 +1218,7 @@
         "PubliclyAccessible": false
       },
       "UpdateReplacePolicy": "Delete",
-      "DeletionPolicy": "Delete",
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/mysql-cluster/Instance2"
-      }
-    },
-    "CDKMetadata": {
-      "Type": "AWS::CDK::Metadata",
-      "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31SQW7bMBB8S+60WhvooUfLSlMXQStYQa7Fil67rCVSIJdOA0F/75KULCUFeuJwOFzOznKTbT5n6zt4cSt5vKwaVWd9RSAvgqmfPcpN1j93UuxO+rncidLXjZKVrzVS4GZ0MJ7wCeoGZ37mts4ZqYCU0TdxAPf7MizfgR6A8AVeRWnVleFceK8JLeNJkJyMuy2x118tahIVSm8VvT5Y47vo4b/E/dmic//Qe534HFww+9U4elTa/xF77Qi0xGQp4UFgE3SyMXCsoWFO6fOVI9t2HecU+30Ce2b3k4nldqF65Ap5rIA2yN7slzrlCPWoGTHbkC7rd43nfTyZ4Bd+DMII3KXAk9JqGsB7xmgCxaUW3Hi3QntVqe0JVpKN8VBDkZ3xmgahoM36g0nDj2tp2HKc1oym3EprTqrh+GBuDDwZx4U5QP6BtxdCWPHtN8wg7JE7LoCgBodTu+nT3KIu8iUxiXncNtUs8kVkRT5P1UWJa0HDGS0nGz9JuJWWZGLx926C9yfDIA7ojLcpwR+eOh/lJVhocXx7KeFRHOMABvENrvBhvc4+ZutPd7+dUivLYasWs0Na/wJG6t+BvQMAAA=="
-      },
-      "Metadata": {
-        "aws:cdk:path": "JavademoStack/CDKMetadata/Default"
-      },
-      "Condition": "CDKMetadataAvailable"
+      "DeletionPolicy": "Delete"
     }
   },
   "Outputs": {
@@ -1428,200 +1238,6 @@
       "Type": "AWS::SSM::Parameter::Value<String>",
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
-    }
-  },
-  "Conditions": {
-    "CDKMetadataAvailable": {
-      "Fn::Or": [
-        {
-          "Fn::Or": [
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "af-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-east-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-northeast-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-northeast-2"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-southeast-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ap-southeast-2"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "ca-central-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "cn-north-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "cn-northwest-1"
-              ]
-            }
-          ]
-        },
-        {
-          "Fn::Or": [
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-central-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-north-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-west-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-west-2"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "eu-west-3"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "me-south-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "sa-east-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-east-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-east-2"
-              ]
-            }
-          ]
-        },
-        {
-          "Fn::Or": [
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-west-1"
-              ]
-            },
-            {
-              "Fn::Equals": [
-                {
-                  "Ref": "AWS::Region"
-                },
-                "us-west-2"
-              ]
-            }
-          ]
-        }
-      ]
     }
   },
   "Rules": {
